@@ -1,15 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    {
+      path: "./assets/fonts/Inter_28pt-Regular.ttf",
+      weight: "400",
+    },
+    {
+      path: "./assets/fonts/Inter_28pt-Medium.ttf",
+      weight: "500",
+    },
+    {
+      path: "./assets/fonts/Inter_28pt-SemiBold.ttf",
+      weight: "600",
+    },
+    {
+      path: "./assets/fonts/Inter_28pt-Bold.ttf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const sora = localFont({
+  src: "./assets/fonts/Sora-SemiBold.ttf",
+  variable: "--font-sora",
+  weight: "600",
+});
+
+const poppins = localFont({
+  src: "./assets/fonts/Poppins-Regular.ttf",
+  variable: "--font-poppins",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${sora.variable} ${poppins.variable} antialiased`}
       >
         {children}
       </body>
